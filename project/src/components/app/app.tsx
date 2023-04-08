@@ -26,8 +26,8 @@ function App({placesCount, offers, reviews} : AppScreenProps): JSX.Element {
           element = {<LoginScreen/>}
         />
         <Route
-          path = {AppRoute.Room}
-          element = {<CardDescriptionScreen/>}
+          path = {`${AppRoute.Room}/:id`}
+          element = {<CardDescriptionScreen offers={offers} reviews={reviews}/>}
         />
         <Route
           path = "*"

@@ -2,7 +2,7 @@ import { Offers } from '../types/offers';
 
 export const offers: Offers = [
   {
-    id: 1,
+    id: '1',
     previewImage: 'img/room.jpg',
     photos: [
       'img/room.jpg',
@@ -37,15 +37,15 @@ export const offers: Offers = [
     description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.'
   },
   {
-    id: 2,
+    id: '2',
     previewImage: 'img/apartment-03.jpg',
     photos: [
       'img/room.jpg',
-      'img/apartment-01.jpg',
-      'img/apartment-02.jpg',
       'img/apartment-03.jpg',
       'img/apartment-02.jpg',
       'img/apartment-01.jpg',
+      'img/apartment-01.jpg',
+      'img/apartment-03.jpg',
     ],
     isPremium: false,
     title: 'Nice, cozy, warm big bed apartment ',
@@ -70,19 +70,19 @@ export const offers: Offers = [
     description: 'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.'
   },
   {
-    id: 3,
+    id: '3',
     previewImage: 'img/apartment-02.jpg',
     photos: [
       'img/room.jpg',
       'img/apartment-01.jpg',
       'img/apartment-02.jpg',
+      'img/apartment-01.jpg',
       'img/apartment-03.jpg',
       'img/apartment-02.jpg',
-      'img/apartment-01.jpg',
     ],
     isPremium: false,
     title: 'Beautiful & luxurious studio at great location',
-    rating: 3.8,
+    rating: 4.5,
     type: 'Private room',
     bedrooms: 3,
     maxAdults: 6,
@@ -103,19 +103,19 @@ export const offers: Offers = [
     description: 'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.'
   },
   {
-    id: 4,
+    id: '4',
     previewImage: 'img/apartment-01.jpg',
     photos: [
       'img/room.jpg',
-      'img/apartment-01.jpg',
       'img/apartment-02.jpg',
+      'img/apartment-01.jpg',
       'img/apartment-03.jpg',
-      'img/apartment-02.jpg',
       'img/apartment-01.jpg',
+      'img/apartment-03.jpg',
     ],
     isPremium: true,
     title: 'Canal View Prinsengracht',
-    rating: 4,
+    rating: 3.4,
     type: 'Apartment',
     bedrooms: 1,
     maxAdults: 3,
