@@ -1,10 +1,20 @@
-import CardComponent from '../../components/card-component/card-component';
+import { useState } from 'react';
+import { Offers, ActiveOffer } from '../../types/offers';
+import { Link } from 'react-router-dom';
+import CardListComponent from '../../components/card-list-component/card-list-component';
 
 type MainScreenProps = {
-  placesCount : number;
+  placesCount: number;
+  offers: Offers;
+
 }
 
-function MainScreen ({placesCount} : MainScreenProps) : JSX.Element {
+function MainScreen ({placesCount, offers} : MainScreenProps) : JSX.Element {
+  const [, setActiveCard] = useState<ActiveOffer>(null);
+
+  const handleActiveCardChange = (offer: ActiveOffer) => {
+    setActiveCard(offer);
+  };
   return (
     <body className="page page--gray page--main">
       <div style={{display: 'none'}}>
@@ -15,9 +25,9 @@ function MainScreen ({placesCount} : MainScreenProps) : JSX.Element {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <a className="header__logo-link header__logo-link--active" href="/">
+              <Link className="header__logo-link header__logo-link--active" to="/">
                 <img className="header__logo" src="img/logo.svg" alt="6 cities logo" width="81" height="41"/>
-              </a>
+              </Link>
             </div>
             <nav className="header__nav">
               <ul className="header__nav-list">
@@ -28,9 +38,9 @@ function MainScreen ({placesCount} : MainScreenProps) : JSX.Element {
                   </div>
                 </li>
                 <li className="header__nav-item">
-                  <a className="header__nav-link" href="/">
+                  <Link className="header__nav-link" to="/">
                     <span className="header__signout">Sign out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </nav>
@@ -43,34 +53,34 @@ function MainScreen ({placesCount} : MainScreenProps) : JSX.Element {
           <section className="locations container">
             <ul className="locations__list tabs__list">
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <Link className="locations__item-link tabs__item" to="/">
                   <span>Paris</span>
-                </a>
+                </Link>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <Link className="locations__item-link tabs__item" to="/">
                   <span>Cologne</span>
-                </a>
+                </Link>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <Link className="locations__item-link tabs__item" to="/">
                   <span>Brussels</span>
-                </a>
+                </Link>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active" href="/">
+                <Link className="locations__item-link tabs__item tabs__item--active" to="/">
                   <span>Amsterdam</span>
-                </a>
+                </Link>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <Link className="locations__item-link tabs__item" to="/">
                   <span>Hamburg</span>
-                </a>
+                </Link>
               </li>
               <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="/">
+                <Link className="locations__item-link tabs__item" to="/">
                   <span>Dusseldorf</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </section>
@@ -95,13 +105,7 @@ function MainScreen ({placesCount} : MainScreenProps) : JSX.Element {
                   <li className="places__option" tabIndex= {0} >Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                <CardComponent/>
-                <CardComponent/>
-                <CardComponent/>
-                <CardComponent/>
-                <CardComponent/>
-              </div>
+              <CardListComponent offers={offers} onActiveCardChange={handleActiveCardChange} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
