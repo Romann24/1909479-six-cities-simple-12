@@ -1,23 +1,27 @@
 import { Link } from 'react-router-dom';
 import CommentForm from '../../components/comment-form-component/comment-form-component';
+import NotFoundScreen from '../not-found-screen/not-found-screen';
 import { useParams } from 'react-router-dom';
-import { Offers, Offer } from '../../types/offers';
-import { Reviews, Review } from '../../types/reviews';
+import { Offers } from '../../types/offers';
+import ReviewListComponent from '../../components/review-list-component/review-list-component';
+import { reviews } from '../../mocks/reviews';
 
 type CardDescriptionProps = {
   offers: Offers;
-  reviews: Reviews;
 };
 
 type OfferItemParams = {
   id: string;
 };
 
-function CardDescriptionScreen ({ offers, reviews }: CardDescriptionProps) : JSX.Element {
+function CardDescriptionScreen ({ offers }: CardDescriptionProps) : JSX.Element {
   const params = useParams<keyof OfferItemParams>() as OfferItemParams;
   const { id } = params;
-  const offer = offers.find((item) => item.id === id) as Offer;
-  const review = reviews.find((item) => item.id === id) as Review;
+  const offer = offers.find((item) => item.id === id);
+
+  if (offer === undefined) {
+    return <NotFoundScreen/>;
+  }
 
   return (
     <body>
@@ -124,31 +128,8 @@ function CardDescriptionScreen ({ offers, reviews }: CardDescriptionProps) : JSX
                   </div>
                 </div>
                 <section className="property__reviews reviews">
-                  <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">1</span></h2>
-                  <ul className="reviews__list">
-                    <li className="reviews__item">
-                      <div className="reviews__user user">
-                        <div className="reviews__avatar-wrapper user__avatar-wrapper">
-                          <img className="reviews__avatar user__avatar" src={review.avatar} width="54" height="54" alt="Reviews avatar"/>
-                        </div>
-                        <span className="reviews__user-name">
-                          {review.name}
-                        </span>
-                      </div>
-                      <div className="reviews__info">
-                        <div className="reviews__rating rating">
-                          <div className="reviews__stars rating__stars">
-                            <span style={{width: `${Math.round(review.rating) * 20}%`}}></span>
-                            <span className="visually-hidden">Rating</span>
-                          </div>
-                        </div>
-                        <p className="reviews__text">
-                          {review.comment}
-                        </p>
-                        <time className="reviews__time" dateTime="2019-04-24">{review.date}</time>
-                      </div>
-                    </li>
-                  </ul>
+                  <h2 className="reviews__title">Reviews &middot; <span className="reviews__amount">{reviews.length}</span></h2>
+                  <ReviewListComponent reviews={reviews}/>
                   <CommentForm/>
                 </section>
               </div>
