@@ -6,3 +6,7 @@ export enum AppRoute {
     Room = '/offer',
 }
 
+export const DEFAUILT_POINT_URL = 'img/pin.svg';
+
+export const CURRENT_POINT_URL = 'img/pin-active.svg';
+

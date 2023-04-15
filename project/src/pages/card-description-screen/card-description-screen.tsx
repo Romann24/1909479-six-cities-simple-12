@@ -19,7 +19,7 @@ function CardDescriptionScreen ({ offers }: CardDescriptionProps) : JSX.Element 
   const { id } = params;
   const offer = offers.find((item) => item.id === id);
 
-  if (offer === undefined) {
+  if (!offer) {
     return <NotFoundScreen/>;
   }
 
