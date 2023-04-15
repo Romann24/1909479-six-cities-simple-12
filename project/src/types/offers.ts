@@ -1,3 +1,14 @@
+export type Location = {
+    lat: number;
+    lng: number;
+    zoom: number;
+}
+
+export type City = {
+    location: Location;
+    name: string;
+}
+
 export type Offer = {
     id: string;
     previewImage: string;
@@ -14,7 +25,7 @@ export type Offer = {
     avatar: string;
     isPro: boolean;
     description: string;
-
+    city: City;
 };
 
 export type Offers = Offer[];

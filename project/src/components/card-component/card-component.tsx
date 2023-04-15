@@ -1,21 +1,18 @@
-import { Offer, ActiveOffer } from '../../types/offers';
+import { Offer } from '../../types/offers';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const';
 
 type CardProps = {
   offer: Offer;
-  onActiveCardChange: (activeOffer: ActiveOffer) => void;
+  onMouseOverHandler: (id: string) => void;
 }
 
-function CardComponent ({offer, onActiveCardChange}: CardProps) : JSX.Element {
-  const { isPremium, previewImage, price, rating, title, type} = offer;
+function CardComponent ({offer, onMouseOverHandler}: CardProps) : JSX.Element {
+  const { isPremium, previewImage, price, rating, title, type, id} = offer;
   const LinkToRoom = `${AppRoute.Room}/${offer.id}`;
 
   return (
-    <article className="cities__card place-card"
-      onMouseEnter={() => onActiveCardChange(offer)}
-      onMouseLeave={() => onActiveCardChange(null)}
-    >
+    <article onMouseOver={() => onMouseOverHandler(id)} className="cities__card place-card">
       {isPremium ? (
         <div className="place-card__mark">
           <span>Premium</span>

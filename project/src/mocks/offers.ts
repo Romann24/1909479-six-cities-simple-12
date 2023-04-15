@@ -34,7 +34,15 @@ export const offers: Offers = [
     hostName: 'Bob',
     avatar: 'img/avatar-max.jpg',
     isPro: false,
-    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.'
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+    city: {
+      location: {
+        lat: 52.4009553943508,
+        lng: 4.90309666406198,
+        zoom: 10
+      },
+      name: 'Amsterdam'
+    }
   },
   {
     id: '2',
@@ -67,7 +75,15 @@ export const offers: Offers = [
     hostName: 'Olga',
     avatar: 'img/avatar-angelina.jpg',
     isPro: true,
-    description: 'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.'
+    description: 'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
+    city: {
+      location: {
+        lat: 52.3009553943508,
+        lng: 4.73309666406198,
+        zoom: 10
+      },
+      name: 'Amsterdam'
+    }
   },
   {
     id: '3',
@@ -100,7 +116,15 @@ export const offers: Offers = [
     hostName: 'Anna',
     avatar: 'img/avatar-angelina.jpg',
     isPro: false,
-    description: 'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.'
+    description: 'An independent House, strategically located between Rembrand Square and National Opera, but where the bustle of the city comes to rest in this alley flowery and colorful.',
+    city: {
+      location: {
+        lat: 52.2609553943508,
+        lng: 4.80309666406198,
+        zoom: 10
+      },
+      name: 'Amsterdam'
+    }
   },
   {
     id: '4',
@@ -129,7 +153,15 @@ export const offers: Offers = [
     hostName: 'Max',
     avatar: 'img/avatar-max.jpg',
     isPro: true,
-    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.'
+    description: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
+    city: {
+      location: {
+        lat: 52.3909553943508,
+        lng: 4.85309666406198,
+        zoom: 10
+      },
+      name: 'Amsterdam'
+    }
   },
 
 ];
